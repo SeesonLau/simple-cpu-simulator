@@ -1,9 +1,8 @@
-import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
+from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QLabel, QLineEdit, QPushButton, 
                              QComboBox, QTableWidget, QTableWidgetItem, 
                              QTextEdit, QMessageBox, QGroupBox, QSpinBox,
-                             QHeaderView, QScrollArea)
+                             QHeaderView)
 from PyQt5.QtCore import Qt
 
 class CPUApp(QMainWindow):
@@ -12,7 +11,7 @@ class CPUApp(QMainWindow):
         self.cpu = None
         self.instruction_addresses = []
         self.data_addresses = set()
-        self.data_inputs = {}  # Store references to data input widgets
+        self.data_inputs = {}  
         self.init_ui()
     
     def init_ui(self):
@@ -254,11 +253,6 @@ class CPUApp(QMainWindow):
             else:
                 # If no input field exists, use default value
                 data_values[address] = 0
-        
-        # Debug: Show what we're loading
-        print(f"Instructions: {instructions}")
-        print(f"Data values: {data_values}")
-        
         return instructions, data_values
     
     def run_program(self):

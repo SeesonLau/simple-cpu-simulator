@@ -18,7 +18,6 @@ class Memory:
     def set_data(self, address, value):
         if 0 <= address < self.size:
             self.data[address] = value
-            # Don't mark as instruction - this is data
     
     def get_value(self, address):
         if 0 <= address < self.size:
